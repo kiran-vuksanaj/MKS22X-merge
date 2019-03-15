@@ -6,6 +6,13 @@ public class Merge{
     int[] out = new int[sortedSections.length];
     merge(out,sortedSections,0,3,sortedSections.length);
     System.out.println(Arrays.toString(out));
+    //for the hell of it
+    int[] data = {6,3,45,5,6,78,8,8,8,9,2,8,-5,4,2};
+    int[] data2 = Arrays.copyOfRange(data,0,data.length);
+    mergesort(data);
+    System.out.println(Arrays.toString(data));
+    Arrays.sort(data2);
+    System.out.println(Arrays.toString(data2));
   }
   public static void mergesort(int[] data){
     int[] copy = Arrays.copyOfRange(data,0,data.length);
