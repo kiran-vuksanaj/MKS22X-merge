@@ -18,6 +18,15 @@ public class Merge{
     }
   }
   private static void merge(int[] into,int[] withSorted,int lo,int mid,int hi){
-    
+    int loCounter = lo;
+    int hiCounter = mid;
+    for(int i=lo;i<hi;i++){
+      if(withSorted[hiCounter] < withSorted[loCounter]){
+        //note the less than and not less than or equal to, preserves stability
+        into[i] = withSorted[hiCounter++];
+      }else{
+        into[i] = withSorted[loCounter++];
+      }
+    }
   }
 }
