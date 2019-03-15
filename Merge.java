@@ -1,5 +1,12 @@
 import java.util.Arrays;
 public class Merge{
+  public static void main(String[] args){
+    //testing MERGE
+    int[] sortedSections = {2,3,7,1,2,4,5};
+    int[] out = new int[sortedSections.length];
+    merge(out,sortedSections,0,3,sortedSections.length);
+    System.out.println(Arrays.toString(out));
+  }
   public static void mergesort(int[] data){
     int[] copy = Arrays.copyOfRange(data,0,data.length);
     msort(data,copy,0,data.length);
@@ -21,7 +28,8 @@ public class Merge{
     int loCounter = lo;
     int hiCounter = mid;
     for(int i=lo;i<hi;i++){
-      if(withSorted[hiCounter] < withSorted[loCounter]){
+      if(hiCounter < hi && loCounter < mid &&
+         withSorted[hiCounter] < withSorted[loCounter]){
         //note the less than and not less than or equal to, preserves stability
         into[i] = withSorted[hiCounter++];
       }else{
