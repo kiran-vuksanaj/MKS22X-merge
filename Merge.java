@@ -19,7 +19,7 @@ public class Merge{
     msort(data,copy,0,data.length);
   }
   private static void msort(int[] data,int[] temp,int lo,int hi){
-    if(lo < hi){
+    if(lo+1 < hi){
       //recursive case: base case is empty, but implied is do nothing when lo>=hi
       //find approximate middle index
       int mid = (lo+hi) / 2;
