@@ -35,11 +35,11 @@ public class Merge{
     int loCounter = lo;
     int hiCounter = mid;
     for(int i=lo;i<hi;i++){
-      if(hiCounter < hi && loCounter < mid &&
+      if(hiCounter < hi &&
          withSorted[hiCounter] < withSorted[loCounter]){
         //note the less than and not less than or equal to, preserves stability
         into[i] = withSorted[hiCounter++];
-      }else{
+      }else if(loCounter < mid){
         into[i] = withSorted[loCounter++];
       }
     }
