@@ -34,14 +34,24 @@ public class Merge{
   private static void merge(int[] into,int[] withSorted,int lo,int mid,int hi){
     int loCounter = lo;
     int hiCounter = mid;
-    for(int i=lo;i<hi;i++){
-      if(hiCounter < hi &&
-         withSorted[hiCounter] < withSorted[loCounter]){
-        //note the less than and not less than or equal to, preserves stability
-        into[i] = withSorted[hiCounter++];
-      }else if(loCounter < mid){
-        into[i] = withSorted[loCounter++];
+    int i = lo;
+    while(i < hi && hiCounter < hi && loCounter < mid){
+      //compare values: place in lower among hiCounter and loCounter index
+      //                and tick up on the counter that is put in
+      if(withSorted[loCounter] <= withSorted[hiCounter]){
+        into[i++] = withSorted[loCounter++];
+      }else{
+        into[i++] = withSorted[hiCounter++];
       }
+    }
+    //add leftover values at the end
+    while(i < hi && hiCounter < hi){
+      //for if the hi counter didn't reach the end
+      into[i++] = withSorted[hiCounter++];
+    }
+    while(i < hi && loCounter < mid){
+      //for if the lo counter didn't reach the end
+      into[i++] = withSorted[loCounter++];
     }
   }
 }
