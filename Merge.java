@@ -15,6 +15,9 @@ public class Merge{
     System.out.println(Arrays.toString(data2));
     //testing INSERTION
     int[] ary = {4,5,3,1,3,7,9,9,9,9,4,63,4,-7};
+    insertionsort(ary,4,14);
+    System.out.println(Arrays.toString(ary));
+    System.out.println(Arrays.toString(Arrays.copyOfRange(ary,4,14)));
   }
   public static void mergesort(int[] data){
     int[] copy = Arrays.copyOfRange(data,0,data.length);
@@ -60,7 +63,7 @@ public class Merge{
     for(int i=lo+1;i<hi;i++){//at any given time, all values to the left of i are sorted
       int j = i;
       while(j > lo && data[j-1] > data[j]){
-        swap(data,j-1,j);
+        swap(data,j-1,j--);
       }
     }
   }
