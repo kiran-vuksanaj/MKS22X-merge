@@ -20,7 +20,7 @@ public class Merge{
     System.out.println(Arrays.toString(Arrays.copyOfRange(ary,4,14)));
   }
   public static void mergesort(int[] data){
-    mergesort(data,1);
+    mergesort(data,105);
   }
   public static void mergesort(int[] data,int k){
     int[] copy = Arrays.copyOfRange(data,0,data.length);
