@@ -32,9 +32,9 @@ public class Merge{
       //find approximate middle index
       int mid = (lo+hi) / 2;
       //mergesort first half(before middle index)
-      msort(temp,data,lo,mid);
+      msort(temp,data,lo,mid,k);
       //mergesort second half(including and after middle index)
-      msort(temp,data,mid,hi);
+      msort(temp,data,mid,hi,k);
       //merge the two together(the real work)
       merge(data,temp,lo,mid,hi);
     }else{
