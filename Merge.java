@@ -23,8 +23,8 @@ public class Merge{
     int[] copy = Arrays.copyOfRange(data,0,data.length);
     msort(data,copy,0,data.length);
   }
-  private static void msort(int[] data,int[] temp,int lo,int hi){
-    if(lo+1 < hi){
+  private static void msort(int[] data,int[] temp,int lo,int hi,int k){
+    if(lo+k < hi){
       //recursive case: base case is empty, but implied is do nothing when lo>=hi
       //find approximate middle index
       int mid = (lo+hi) / 2;
@@ -34,6 +34,8 @@ public class Merge{
       msort(temp,data,mid,hi);
       //merge the two together(the real work)
       merge(data,temp,lo,mid,hi);
+    }else{
+      insertionsort(data,lo,hi);
     }
   }
   private static void merge(int[] into,int[] withSorted,int lo,int mid,int hi){
